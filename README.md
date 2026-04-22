@@ -1,132 +1,119 @@
-# 🧪 API Testing Project - JSONPlaceholder
-
-This project demonstrates API testing skills using Postman on the public JSONPlaceholder API.
+# 🧪 API Testing Project – JSONPlaceholder
 
 ---
 
-## 🎯 Objective
+## 🎯 Business Context
 
-To validate basic REST API functionality including:
+This project simulates the validation of a REST API used to manage posts in a social media-like application.
 
-- Data retrieval (GET)
-- Resource creation (POST)
-- Response validation
-- Data structure validation
-- Basic performance checks
+The goal of this testing effort is to ensure that the core services function correctly, maintaining data integrity, response consistency, and acceptable performance.
 
 ---
 
-## 🔧 Tools used
+## ⚠️ Risk Areas Identified
 
-- Postman
-- JSONPlaceholder API
-- JavaScript (Postman Scripts)
+During API analysis, the following risks were identified:
 
----
+- Lack of strict response structure validation
+- Potential inconsistencies in resource creation (POST)
+- Missing contract validation on endpoints
+- Variable performance under high response payloads
 
-## 📌 Test cases implemented
-
-### GET /posts
-- Validate status code 200
-- Verify response is not empty
-- Validate data structure (userId, id, title, body)
-- Validate response time (< 500ms)
-
-### POST /posts
-- Validate status code 201
-- Verify sent data in response
-- Validate data types (userId as number)
-- Performance validation
+These risks could affect system reliability in a production environment.
 
 ---
 
-## 🧠 Testing techniques applied
+## 🧪 QA Approach
 
-- Functional Testing
-- API Testing
-- Validation Testing
-- Contract Testing
-- Basic Performance Testing
+The testing strategy focused on:
+
+- REST endpoint validation (GET / POST)
+- HTTP status code verification
+- Response schema validation (basic structure)
+- Data integrity testing
+- Basic performance validation (response time)
 
 ---
 
-## 📂 Project structure
+## 📌 Test Scope
 
+### In Scope
 - GET /posts
+- GET /posts/{id}
 - POST /posts
+- JSON response validation
+- Required fields validation
 
-Exported as a Postman collection.
-
----
-
-## 📌 Conclusion
-
-This project demonstrates manual API testing skills, test case design, and REST service validation.
-
--------------------------------------------------------------------------------------------------------------------
-
-Este proyecto demuestra habilidades de testing de APIs utilizando Postman sobre la API pública JSONPlaceholder.
+### Out of Scope
+- Authentication / Security testing
+- Load testing
+- Database integration
+- CI/CD automation
 
 ---
 
-## 🎯 Objetivo
+## 📊 Outcome
 
-Validar funcionalidades básicas de una API REST, incluyendo:
+The testing process validated the correct behavior of the main API endpoints, ensuring response consistency, data structure integrity, and expected system behavior.
 
-- Obtención de datos (GET)
-- Creación de recursos (POST)
-- Validación de respuestas
-- Validación de estructura de datos
-- Verificación de performance básica
+----------------------------------------------------------------------------------------------------------------------------
+
+# 🧪 Proyecto de Testing de APIs – JSONPlaceholder
 
 ---
 
-## 🔧 Herramientas utilizadas
+## 🎯 Contexto de Negocio
 
-- Postman
-- JSONPlaceholder API
-- JavaScript (Postman Scripts)
+Este proyecto simula la validación de una API REST utilizada para gestionar publicaciones dentro de una aplicación tipo red social.
 
----
-
-## 📌 Casos de prueba implementados
-
-### GET /posts
-- Validación de status code 200
-- Verificación de respuesta no vacía
-- Validación de estructura de datos (userId, id, title, body)
-- Validación de tiempo de respuesta (< 500ms)
-
-### POST /posts
-- Validación de status code 201
-- Verificación de datos enviados en la respuesta
-- Validación de tipo de datos (userId como number)
-- Validación de performance
+El objetivo del testing es asegurar que los servicios principales funcionen correctamente, manteniendo la integridad de los datos, la consistencia de las respuestas y un rendimiento adecuado.
 
 ---
 
-## 🧠 Técnicas de testing aplicadas
+## ⚠️ Áreas de Riesgo Identificadas
 
-- Functional Testing
-- API Testing
-- Validation Testing
-- Contract Testing (estructura de respuesta)
-- Basic Performance Testing
+Durante el análisis de la API se identificaron los siguientes riesgos:
+
+- Respuestas sin validación estricta de estructura
+- Posibles inconsistencias en la creación de recursos (POST)
+- Falta de validaciones de contrato en los endpoints
+- Rendimiento variable en respuestas de gran volumen
+
+Estos riesgos pueden afectar la confiabilidad del sistema en un entorno productivo.
 
 ---
 
-## 📂 Estructura del proyecto
+## 🧪 Enfoque de QA
 
+La estrategia de testing se centró en:
+
+- Validación de endpoints REST (GET / POST)
+- Verificación de códigos de estado HTTP
+- Validación de estructura de respuesta (schema básico)
+- Pruebas de integridad de datos
+- Validación de performance básica (response time)
+
+---
+
+## 📌 Alcance de las pruebas
+
+### Dentro del alcance
 - GET /posts
+- GET /posts/{id}
 - POST /posts
+- Validación de respuestas JSON
+- Validación de campos obligatorios
 
-Exportado como colección de Postman.
+### Fuera del alcance
+- Autenticación / Seguridad
+- Pruebas de carga
+- Integración con bases de datos reales
+- Automatización CI/CD
 
 ---
 
-## 📌 Conclusión
+## 📊 Resultado
 
-Este proyecto demuestra habilidades en testing manual de APIs, diseño de casos de prueba y validación de servicios REST.
+El proceso de testing permitió validar el correcto funcionamiento de los principales endpoints, asegurando consistencia en las respuestas, estructura de datos y comportamiento esperado de la API.
 
 ---
-

@@ -1,0 +1,133 @@
+{
+  "info": {
+    "_postman_id": "5cfeb277-191d-45ed-801e-1085de75a54c",
+    "name": "JSONPlaceholder API Testing",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54241104",
+    "_collection_link": "https://go.postman.co/collection/54241104-5cfeb277-191d-45ed-801e-1085de75a54c?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "/posts",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response is not empty\", function () {",
+              "    let jsonData = pm.response.json();",
+              "    pm.expect(jsonData.length).to.be.above(0);",
+              "});",
+              "",
+              "pm.test(\"Each post has required fields\", function () {",
+              "    let jsonData = pm.response.json();",
+              "",
+              "    pm.expect(jsonData[0]).to.have.property(\"userId\");",
+              "    pm.expect(jsonData[0]).to.have.property(\"id\");",
+              "    pm.expect(jsonData[0]).to.have.property(\"title\");",
+              "    pm.expect(jsonData[0]).to.have.property(\"body\");",
+              "});",
+              "",
+              "pm.test(\"Response time is less than 500ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "/posts",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "pm.test(\"Response has id\", function () {",
+              "    let jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property(\"id\");",
+              "});",
+              "",
+              "pm.test(\"Response contains sent data\", function () {",
+              "    let jsonData = pm.response.json();",
+              "",
+              "    pm.expect(jsonData.title).to.eql(\"test post\");",
+              "    pm.expect(jsonData.body).to.eql(\"this is a test\");",
+              "    pm.expect(jsonData.userId).to.eql(1);",
+              "});",
+              "",
+              "pm.test(\"Response time is less than 500ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);",
+              "});",
+              "",
+              "pm.test(\"UserId is a valid positive number\", function () {",
+              "    let jsonData = pm.response.json();",
+              "    pm.expect(jsonData.userId).to.be.a(\"number\").and.to.be.above(0);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"test post\",\n  \"body\": \"this is a test\",\n  \"userId\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    }
+  ]
+}
